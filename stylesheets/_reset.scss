@@ -1,0 +1,113 @@
+@mixin reset-border {
+  border: none;
+}
+
+@mixin reset-focus {
+  outline: 0;
+}
+
+@mixin reset-box-model {
+  @include reset-border;
+  @include reset-focus;
+
+  margin: 0;
+  padding: 0;
+}
+
+@mixin reset-font {
+  font: {
+    family: inherit;
+    size: 100%;
+    style: inherit;
+    weight: inherit;
+  }
+
+  vertical-align: baseline;
+}
+
+// Reset all elements within some selector scope -
+// Useful if you want to style a part of your page in a
+// dramatically different way.
+
+@mixin reset-scope {
+  div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, font, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td {
+    @include reset-box-model;
+    @include reset-font;
+  }
+
+  table {
+    @include reset-table;
+  }
+
+  caption, th, td {
+    @include reset-table-cell;
+  }
+
+  ol, ul {
+    @include reset-list-style;
+  }
+
+  q, blockquote {
+    @include reset-quotes;
+  }
+
+  a img {
+    @include reset-border;
+  }
+}
+
+@mixin reset-global {
+  html, body {
+    @include reset-box-model;
+    @include reset-font;
+  }
+
+  body {
+    @include reset-scope;
+
+    line-height: 1;
+    color: black;
+    background: white;
+  }
+}
+
+@mixin reset-list-style {
+  list-style: none;
+}
+
+@mixin reset-quotes {
+  quotes: "" "";
+
+  &:before, &:after {
+    content: "";
+  }
+}
+
+@mixin reset-table-cell {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+@mixin reset-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+// Unrecognized elements are displayed inline.
+// This reset provides a basic reset for html5 elements so they
+// are rendered correctly in browsers that don't recognize them.
+
+@mixin reset-html5 {
+  section, article, aside, header, footer, nav, dialog, figure {
+    display: block;
+  }
+}
