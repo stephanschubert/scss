@@ -1,0 +1,28 @@
+@import "hacks/ie";
+
+// The Modern Approach --
+// Details: http://www.quirksmode.org/css/clearing.html
+//
+@mixin clearfix {
+  @include has-layout;
+  overflow: hidden;
+}
+
+// The Old Voodoo --
+// Details: http://www.positioniseverything.net/easyclearing.html
+//
+// A the cost of a bit more complicated CSS it allows you to have
+// positioned elements hanging out of the container.
+//
+@mixin pie-clearfix {
+  @include has-layout;
+
+  &:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}

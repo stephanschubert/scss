@@ -1,0 +1,20 @@
+// Causes an element to gain the "hasLayout" property in IE.
+// There are many ways to trigger this property but not all
+// work in every case - except for 'zoom'. (Forget IE5.0!)
+//
+// Yes, it doesn't validate because it's MS-proprietary,
+// but I dont care. Who's validating stylesheets anyway?
+//
+// More details about this madness:
+// http://www.satzansatz.de/cssd/onhavinglayout.html
+//
+@mixin has-layout {
+  zoom: 1;
+}
+
+// 'hasLayout' can be reset unless there's another rule
+// which's already triggering it.
+//
+@mixin reset-has-layout {
+  zoom: normal;
+}

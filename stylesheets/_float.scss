@@ -1,0 +1,10 @@
+// Float mixin w/ fix for IE5/6's double-margin bug
+// Details: http://www.positioniseverything.net/explorer/doubled-margin.html
+//
+@mixin float($side: left) {
+  display: inline;
+  float: unquote($side);
+}
+
+@mixin float-left  { @include float(left);  }
+@mixin float-right { @include float(right); }
