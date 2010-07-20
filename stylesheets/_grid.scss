@@ -1,0 +1,38 @@
+@import "center";
+@import "float";
+@import "clearfix";
+
+// The number of columns in the grid.
+$grid-columns: 16 !default;
+
+// The width of a column.
+$grid-column-width: 50px !default;
+
+// The amount of margin between columns.
+$grid-column-margin: 10px !default;
+
+// The width of a column including its margin.
+$grid-column-outer-width: $grid-column-width + $grid-column-margin;
+
+// The width of the container.
+$grid-container-width: $grid-columns * $grid-column-outer-width;
+
+// A container for your grid.
+@mixin grid-container {
+  @include center;
+  @include clearfix;
+
+  width: $grid-container-width;
+}
+
+// This mixin sets the width of n columns.
+@mixin grid-column($n, $last: false) {
+  @include grid-column-base;
+}
+
+// This mixin floats a column and sets its margins.
+@mixin grid-column-base {
+  @include float-left;
+  margin-left:  $grid-column-margin / 2;
+  margin-right: $grid-column-margin / 2;
+}
