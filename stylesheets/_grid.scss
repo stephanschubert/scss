@@ -8,13 +8,13 @@ $grid-columns: 16 !default;
 // The width of a column.
 $grid-column-width: 50px !default;
 
-// The amount of margin between columns.
+// The amount of margin for the columns.
 $grid-column-margin: 10px !default;
 
 // The width of a column including its margin.
 $grid-column-outer-width: $grid-column-width + $grid-column-margin;
 
-// The width of the container.
+// The width of the container/grid.
 $grid-container-width: $grid-columns * $grid-column-outer-width;
 
 // A container for your grid.
@@ -25,14 +25,78 @@ $grid-container-width: $grid-columns * $grid-column-outer-width;
   width: $grid-container-width;
 }
 
-// This mixin sets the width of n columns.
-@mixin grid-column($n, $last: false) {
+// This mixin sets the width for n columns.
+@mixin grid-width($n) {
+  width: $grid-container-width / $grid-columns * $n - $grid-column-margin;
+}
+
+// This mixin sets and aligns n columns into the grid.
+@mixin grid-column($n) {
   @include grid-column-base;
+  @include grid-width($n);
 }
 
 // This mixin floats a column and sets its margins.
 @mixin grid-column-base {
   @include float-left;
+
   margin-left:  $grid-column-margin / 2;
   margin-right: $grid-column-margin / 2;
+}
+
+// Mixin to a column to append n empty columns to the right.
+@mixin grid-append($n) {
+  padding-right: $grid-container-width / $grid-columns * $n;
+}
+
+// Mixin to a column to append n empty columns to the left.
+@mixin grid-prepend($n) {
+  padding-left: $grid-container-width / $grid-columns * $n;
+}
+
+// Mixin to add leading margin.
+@mixin grid-prepend-top($amount: 1.5em) {
+  margin-top: $amount;
+}
+
+// Mixin to add trailing margin.
+@mixin grid-append-bottom($amount: 1.5em) {
+  margin-bottom: $amount;
+}
+
+@mixin grid-move-base {
+  position: relative;
+}
+
+// Moves a column +n+ columns to the left.
+// Useful for changing the display order of columns.
+@mixin grid-pull($n) {
+  @include grid-move-base;
+  left: -$grid-column-outer-width * $n;
+}
+
+// Moves a column +n+ columns to the right.
+// Useful for changing the display order of columns.
+@mixin grid-push($n) {
+  @include grid-move-base;
+  left: $grid-column-outer-width * $n;
+}
+
+// This mixin removes the left margin of a column.
+// Useful for embedded grids.
+@mixin grid-first {
+  margin-left: 0;
+}
+
+// This mixin removes the right margin of a column.
+// Useful for embedded grids.
+@mixin grid-last {
+  margin-right: 0;
+}
+
+// This mixins prepares the current column for
+// another embedded grid.
+@mixin grid-children {
+  .grid-first { @include grid-first; }
+  .grid-last  { @include grid-last;  }
 }
