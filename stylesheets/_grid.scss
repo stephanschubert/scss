@@ -6,10 +6,10 @@
 $grid-columns: 16 !default;
 
 // The width of a column.
-$grid-column-width: 50px !default;
+$grid-column-width: 40px !default;
 
 // The amount of margin for the columns.
-$grid-column-margin: 10px !default;
+$grid-column-margin: 20px !default;
 
 // The width of a column including its margin.
 $grid-column-outer-width: $grid-column-width + $grid-column-margin;
