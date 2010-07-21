@@ -64,14 +64,14 @@
 }
 
 @mixin reset-global {
+  @include reset-scope;
+
   html, body {
     @include reset-box-model;
     @include reset-font;
   }
 
   body {
-    @include reset-scope;
-
     line-height: 1;
     color: black;
     background: white;
