@@ -97,6 +97,8 @@ $grid-container-width: $grid-columns * $grid-column-outer-width;
 // This mixins prepares the current column for
 // another embedded grid.
 @mixin grid-children {
+  @include clearfix;
+
   .grid-first { @include grid-first; }
   .grid-last  { @include grid-last;  }
 }
