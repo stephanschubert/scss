@@ -10,7 +10,7 @@ $sprite-default-margin: 0px !default;
 // Supports a unitless value for width/height which is interpreted
 // as the number of cols/rows the sprite is covering.
 //
-@mixin sprite($col, $row: 1, $width: $sprite-default-width, $height: $sprite-default-height, $margin: $sprite-default-margin) {
+@mixin sprite($col, $row: 1, $width: $sprite-default-width, $height: $sprite-default-height) {
   @if unitless($width) {
     $width: $width * $sprite-default-width;
   }
@@ -19,7 +19,7 @@ $sprite-default-margin: 0px !default;
     $height: $height * $sprite-default-height;
   }
 
-  @include sprite-position($col, $row, $width, $height, $margin);
+  @include sprite-position($col, $row);
   @include size($width, $height);
 }
 
