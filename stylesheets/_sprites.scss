@@ -25,8 +25,8 @@ $sprite-default-margin: 0px !default;
 
 // Target a sprite in the image's grid
 @mixin sprite-position($col, $row: 1, $width: $sprite-default-width, $height: $sprite-default-height, $margin: $sprite-default-margin) {
-  $x: ($col - 1) * -$width  - ($col - 1) * $margin;
-  $y: ($row - 1) * -$height - ($row - 1) * $margin;
+  $x: $col * -$width  - $col * $margin;
+  $y: $row * -$height - $row * $margin;
 
   background-position: $x $y;
 }
