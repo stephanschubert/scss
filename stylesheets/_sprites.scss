@@ -1,0 +1,40 @@
+@import "size";
+
+$sprite-default-size:   16px !default;
+$sprite-default-width:  $sprite-default-size !default;
+$sprite-default-height: $sprite-default-size !default;
+
+$sprite-default-margin: 0px !default;
+
+// Sets a sprite and its width/height.
+// Supports a unitless value for width/height which is interpreted
+// as the number of cols/rows the sprite is covering.
+//
+@mixin sprite($col, $row: 1, $width: $sprite-default-width, $height: $sprite-default-height, $margin: $sprite-default-margin) {
+  @if unitless($width) {
+    $width: $width * $sprite-default-width;
+  }
+
+  @if unitless($height) {
+    $height: $height * $sprite-default-height;
+  }
+
+  @include sprite-position($col, $row, $width, $height, $margin);
+  @include size($width, $height);
+}
+
+// Target a sprite in the image's grid
+@mixin sprite-position($col, $row: 1, $width: $sprite-default-width, $height: $sprite-default-height, $margin: $sprite-default-margin) {
+  $x: ($col - 1) * -$width  - ($col - 1) * $margin;
+  $y: ($row - 1) * -$height - ($row - 1) * $margin;
+
+  background-position: $x $y;
+}
+
+// Sets the sprite image we want to use
+@mixin sprite-image($img) {
+  background: {
+    image: url($img);
+    repeat: no-repeat;
+  }
+}
