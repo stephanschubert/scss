@@ -3,3 +3,12 @@
   text-align: left;
   overflow: hidden;
 }
+
+// Adds a shadow to the text --
+// Every browser supporting text-shadow also supports rgba(),
+// so there's no need for manually picking the shadow color:
+// Just let it blend with the background color.
+//
+@mixin text-shadow($color: rgba(0,0,0,0.33), $offset-x: 1px, $offset-y: 1px, $blur-radius: 1px) {
+  text-shadow: $color $offset-x $offset-y $blur-radius;
+}
