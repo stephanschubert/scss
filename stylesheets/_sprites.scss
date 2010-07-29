@@ -34,7 +34,7 @@ $sprite-default-margin: 0px !default;
 // Sets the sprite image we want to use
 @mixin sprite-image($img) {
   background: {
-    image: url($img);
+    image: image_url($img);
     repeat: no-repeat;
   }
 }
