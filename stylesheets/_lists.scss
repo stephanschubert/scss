@@ -1,0 +1,7 @@
+// This mixin setups a horizontally rendered list
+@mixin horizontal-list {
+  @include clearfix;
+  @include float-left;
+
+  li { @include float-left; }
+}
