@@ -30,6 +30,9 @@
 // dramatically different way.
 
 @mixin reset-scope {
+  @include reset-input;
+  @include reset-cursor;
+
   div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -60,6 +63,18 @@
 
   a img {
     @include reset-border;
+  }
+
+  pre {
+    @include reset-pre;
+  }
+
+  .ie button {
+    @include reset-button;
+  }
+
+  .ie7 img {
+    @include ie-bicubic-image-resizing;
   }
 }
 
@@ -105,9 +120,50 @@
 // Unrecognized elements are displayed inline.
 // This reset provides a basic reset for html5 elements so they
 // are rendered correctly in browsers that don't recognize them.
-
+//
 @mixin reset-html5 {
   section, article, aside, header, footer, nav, dialog, figure {
     display: block;
   }
+}
+
+// www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/
+@mixin reset-pre {
+  padding: 15px;
+  white-space: pre;      // CSS2
+  white-space: pre-wrap; // CSS 2.1
+  white-space: pre-line; // CSS 3 (and 2.1 as well, actually)
+  word-wrap: break-word; // IE
+}
+
+// Align checkboxes, radios, text inputs with their label
+// by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css
+//
+@mixin reset-input {
+  input[type="radio"]    { vertical-align: text-bottom; }
+  input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+
+  .ie6 input { vertical-align: text-bottom; }
+}
+
+// Hand cursor on clickable input elements
+//
+@mixin reset-cursor {
+  label, button { cursor: pointer; }
+  input[type="button"], input[type="submit"] { cursor: pointer; }
+}
+
+// http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/
+// Please note that this fix DOES NOT work for buttons contained inside table
+// elements.
+@mixin reset-button {
+  width: auto;
+  overflow: visible;
+}
+
+// Bicubic resizing for non-native sized IMG in IE7:
+// code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+//
+@mixin bicubic-image-resizing {
+  -ms-interpolation-mode: bicubic;
 }
