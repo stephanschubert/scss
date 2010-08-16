@@ -12,3 +12,22 @@
 @mixin text-shadow($color: rgba(0,0,0,0.33), $offset-x: 1px, $offset-y: 1px, $blur-radius: 1px) {
   text-shadow: $color $offset-x $offset-y $blur-radius;
 }
+
+// www.aestheticallyloyal.com/public/optimize-legibility/
+//
+// Improved handling of kerning pairs and ligatures in modern browsers
+// using the text-rendering: optimizeLegibility; declaration.
+//
+// The declaration is currently supported by:
+// Safari 5, The Webkit Nightlies & Chrome.
+//
+// Firefox already uses optimizeLegibility by default for text sizes above 20px.
+//
+@mixin text-optimize-legibility {
+  text-rendering: optimizeLegibility;
+}
+
+// maxvoltar.com/archive/-webkit-font-smoothing
+@mixin text-font-smoothing-for-webkit {
+  -webkit-font-smoothing: antialiased;
+}
