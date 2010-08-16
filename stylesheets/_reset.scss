@@ -84,6 +84,10 @@
   html, body {
     @include reset-box-model;
     @include reset-font;
+
+    // Using height:100% on html and body allows to style containers
+    // with a 100% height.
+    height: 100%;
   }
 
   body {
