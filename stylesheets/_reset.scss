@@ -168,6 +168,6 @@
 // Bicubic resizing for non-native sized IMG in IE7:
 // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
 //
-@mixin bicubic-image-resizing {
+@mixin ie-bicubic-image-resizing {
   -ms-interpolation-mode: bicubic;
 }
