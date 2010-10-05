@@ -69,6 +69,14 @@
   text-align: justify;
 }
 
+@mixin text-lowercase {
+  text-transform: lowercase;
+}
+
+@mixin text-uppercase {
+  text-transform: uppercase;
+}
+
 @mixin text-shadow($offset-x = 1px, $offset-y = 1px, $blur-radius = 1px, $color = #000) {
   text-shadow: $offset-x $offset-y $blur-radius $color;
 }
