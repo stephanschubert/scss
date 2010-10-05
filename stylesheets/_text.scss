@@ -36,8 +36,16 @@
   font-weight: bold;
 }
 
-@mixin text-regular {
+@mixin text-normal {
   font-weight: normal;
+}
+
+@mixin text-italic {
+  font-style: italic;
+}
+
+@mixin text-regular {
+  font-style: regular;
 }
 
 @mixin text-caps($letter-spacing = false) {
