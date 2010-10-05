@@ -1,0 +1,11 @@
+@import "hacks/ie";
+
+// Cross-browser inline block support
+@mixin display-inline-block {
+  @include has-layout;
+
+  display: inline;
+  display: -moz-inline-box;
+  display: inline-block;
+  vertical-align: top;
+}
