@@ -2,6 +2,22 @@
   border: none;
 }
 
+@mixin reset-border-top {
+  border-top: none;
+}
+
+@mixin reset-border-right {
+  border-right: none;
+}
+
+@mixin reset-border-bottom {
+  border-bottom: none;
+}
+
+@mixin reset-border-left {
+  border-left: none;
+}
+
 @mixin reset-focus {
   outline: 0;
 }
