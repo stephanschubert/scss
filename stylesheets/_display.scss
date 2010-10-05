@@ -9,3 +9,19 @@
   display: inline-block;
   vertical-align: top;
 }
+
+@mixin display-none {
+  display: none;
+}
+
+@mixin display-block {
+  display: block;
+}
+
+@mixin hide {
+  @include display-none;
+}
+
+@mixin show {
+  @include display-block;
+}
