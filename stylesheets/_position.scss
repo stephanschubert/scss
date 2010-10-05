@@ -1,5 +1,5 @@
 @mixin position($mode = 'absolute', $top = false, $right = false, $bottom = false, $left = false) {
-  position: $mode;
+  position: unquote($mode);
   @if $top    { top: $top;       }
   @if $right  { right: $right;   }
   @if $bottom { bottom: $bottom; }
