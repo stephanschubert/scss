@@ -31,3 +31,11 @@
 @mixin text-font-smoothing-for-webkit {
   -webkit-font-smoothing: antialiased;
 }
+
+@mixin text-bold {
+  font-weight: bold;
+}
+
+@mixin text-regular {
+  font-weight: normal;
+}
