@@ -44,3 +44,19 @@
   font-variant: small-caps;
   @if $letter-spacing { letter-spacing: $letter-spacing; }
 }
+
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin text-left {
+  text-align: left;
+}
+
+@mixin text-right {
+  text-align: right;
+}
+
+@mixin test-justify {
+  text-align: justify;
+}
