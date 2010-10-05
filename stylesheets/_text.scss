@@ -60,3 +60,11 @@
 @mixin text-justify {
   text-align: justify;
 }
+
+@mixin text-shadow($offset-x = 1px, $offset-y = 1px, $blur-radius = 1px, $color = #000) {
+  text-shadow: $offset-x $offset-y $blur-radius $color;
+}
+
+@mixin text-engrave($color = #fff) {
+  @include shadow(0, 1px, 0, $color);
+}
