@@ -39,3 +39,8 @@
 @mixin text-regular {
   font-weight: normal;
 }
+
+@mixin text-caps($letter-spacing = false) {
+  font-variant: small-caps;
+  @if $letter-spacing { letter-spacing: $letter-spacing; }
+}
