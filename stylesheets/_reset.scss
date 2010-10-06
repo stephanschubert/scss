@@ -111,6 +111,12 @@
     height: 100%;
   }
 
+  html {
+    // Always force a scroll bar in non-IE so we the layout won't
+    // jump when switching to a longer page ...
+    overflow-y: scroll;
+  }
+
   body {
     line-height: 1;
     color: black;
