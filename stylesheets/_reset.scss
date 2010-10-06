@@ -89,14 +89,6 @@
   pre {
     @include reset-pre;
   }
-
-  .ie button {
-    @include reset-button;
-  }
-
-  .ie7 img {
-    @include ie-bicubic-image-resizing;
-  }
 }
 
 @mixin reset-global {
@@ -121,6 +113,14 @@
     line-height: 1;
     color: black;
     background: white;
+  }
+
+  .ie button {
+    @include reset-button;
+  }
+
+  .ie7 img {
+    @include ie-bicubic-image-resizing;
   }
 }
 
