@@ -9,7 +9,24 @@ module SassExtensions
           path = ::APP_ROOT + path
         end
 
+        if buster = compute_cache_buster(path)
+          path << "?#{buster}"
+        end
+
+        # TODO Asset host?
+
         Sass::Script::String.new("url('#{path}')")
+      end
+
+      private # ----------------------------------------------------------------
+
+      # TODO Rails-dependent ...
+      def compute_cache_buster(path)
+        real_path = Rails.root.join("public", path)
+
+        if File.readable?(real_path)
+          File.mtime(real_path).to_i.to_s
+        end
       end
 
     end
