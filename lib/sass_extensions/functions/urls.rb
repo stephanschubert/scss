@@ -20,9 +20,13 @@ module SassExtensions
 
       private # ----------------------------------------------------------------
 
+      def relative_path(path)
+        path[0..0] ==  '/' ? path[1..-1] : path
+      end
+
       # TODO Rails-dependent ...
       def compute_cache_buster(path)
-        real_path = Rails.root.join("public", path)
+        real_path = Rails.root + "public" + relative_path(path)
 
         if File.readable?(real_path)
           File.mtime(real_path).to_i.to_s
