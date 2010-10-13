@@ -8,6 +8,7 @@
 
 @mixin float-left  { @include float(left);  }
 @mixin float-right { @include float(right); }
+@mixin float-none  { float: none; }
 
 @mixin clear-both  { clear: both; }
 @mixin clear       { @include clear-both; }

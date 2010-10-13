@@ -38,14 +38,11 @@
 
 @mixin text-normal {
   font-weight: normal;
+  font-style: normal;
 }
 
 @mixin text-italic {
   font-style: italic;
-}
-
-@mixin text-regular {
-  font-style: regular;
 }
 
 @mixin text-caps($letter-spacing = false) {
