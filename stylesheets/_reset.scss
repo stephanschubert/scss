@@ -138,6 +138,9 @@
   }
 
   body {
+    // Optimize text rendering for modern browsers
+    @include text-optimize-legibility;
+
     line-height: 1;
     color: black;
     background: white;
