@@ -14,6 +14,8 @@
 // A the cost of a bit more complicated CSS it allows you to have
 // positioned elements hanging out of the container.
 //
+// Improved w/ ideas from j.mp/bestclearfix
+//
 @mixin pie-clearfix {
   @include has-layout;
 
