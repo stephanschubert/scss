@@ -17,12 +17,12 @@
 @mixin pie-clearfix {
   @include has-layout;
 
-  &:after {
-    content: " ";
+  &:before, &:after {
+    content: "\0020";
     display: block;
     height: 0;
-    clear: both;
-    overflow: hidden;
     visibility: hidden;
   }
+
+  &:after { clear: both; }
 }
