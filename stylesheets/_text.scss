@@ -23,6 +23,10 @@
 //
 // Firefox already uses optimizeLegibility by default for text sizes above 20px.
 //
+// Careful here, Paul Irish said:
+// "Dropped text-rendering: optimizeLegibility as it breaks small-caps,
+//  looks odd on Linux machines, and goes invisible on WebOS."
+//
 @mixin text-optimize-legibility {
   text-rendering: optimizeLegibility;
 }
