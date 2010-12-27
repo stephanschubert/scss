@@ -123,6 +123,7 @@
 
 @mixin reset-global {
   @include reset-scope;
+  @include reset-html5;
 
   html, body {
     @include reset-box-model;
