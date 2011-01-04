@@ -28,16 +28,11 @@
 
   margin: 0;
   padding: 0;
-  background: transparent;
 }
 
 @mixin reset-font {
-  font: {
-    family: inherit;
-    size: 100%;
-    style: inherit;
-    weight: inherit;
-  }
+  font-size: 100%;
+  font: inherit;
 
   vertical-align: baseline;
 }
