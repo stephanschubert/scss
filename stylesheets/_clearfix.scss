@@ -20,10 +20,12 @@
   @include has-layout;
 
   &:before, &:after {
-    content: "\0020";
-    display: block;
-    height: 0 !important;
-    visibility: hidden;
+    content:  "\0020";
+    display:  block;
+    height:   0 !important;
+
+    // Prevent margin-collapsing on child elements, thx Thierry.
+    overflow: hidden;
   }
 
   &:after { clear: both; }
