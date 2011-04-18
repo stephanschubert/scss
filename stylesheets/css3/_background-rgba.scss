@@ -6,7 +6,7 @@
 
 $use-pie-instead-of-filters: false !default;
 
-@mixin background-rgba($r, $g, $b, $a, $pie: $use-pie-instead-of-filter) {
+@mixin background-rgba($r, $g, $b, $a, $pie: $use-pie-instead-of-filters) {
   // To mimic this in Internet Explorer, you can use the proprietary filter
   // property to create a gradient with the same start and end color, along
   // with an alpha transparency value.
