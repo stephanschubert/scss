@@ -22,6 +22,10 @@
   display: block;
 }
 
+@mixin display-table-cell {
+  display: table-cell;
+}
+
 @mixin hide {
   @include display-none;
 }
