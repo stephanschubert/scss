@@ -1,0 +1,27 @@
+@import experimental;
+
+@mixin background-rgba($r,$g,$b,$a) {
+  // To mimic this in Internet Explorer, you can use the proprietary filter
+  // property to create a gradient with the same start and end color, along
+  // with an alpha transparency value.
+
+  @if experimental-support-for-microsoft {
+    $color: ie_hex($r,$g,$b,$a);
+    $value: unquote("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=##{$color},endColorstr=##{$color})");
+
+    background-color: transparent\9;
+    -ms-filter: $value;
+    filter: $value;
+    zoom: 1;
+  }
+
+  // Good browsers.
+  @include experimental(background-color, rgba($r,$g,$b,$a),
+    -moz,
+    -webkit,
+    -o,
+    not -ms,
+    -khtml,
+    official
+  );
+}

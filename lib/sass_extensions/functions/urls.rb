@@ -13,8 +13,7 @@ module SassExtensions
           path << "?#{buster}"
         end
 
-        # TODO Asset host?
-
+        # TODO asset hosts?
         Sass::Script::String.new("url('#{path}')")
       end
 
