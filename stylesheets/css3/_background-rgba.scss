@@ -1,4 +1,4 @@
-@import experimental;
+@import "experimental";
 
 @mixin background-rgba($r,$g,$b,$a) {
   // To mimic this in Internet Explorer, you can use the proprietary filter
