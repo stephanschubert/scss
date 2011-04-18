@@ -1,0 +1,41 @@
+@import "experimental";
+
+// https://github.com/lojjic/PIE implements a few CSS3 features but won't
+// work in combination w/ (-ms-)filter. So if you want to use PIE instead
+// set the global variable to true or locally when using the mixin.
+
+$use-pie-instead-of-filters: false !default;
+
+@mixin linear-gradient($point-or-angle, $start-color, $end-color, $pie: $use-pie-instead-of-filters) {
+  $value: linear-gradient($point-or-angle, $start-color, $end-color);
+
+  @if $experimental-support-for-mozilla   { background-image: -moz-#{$value};    }
+  @if $experimental-support-for-opera     { background-image: -o-#{$value};      }
+  @if $experimental-support-for-khtml     { background-image: -khtml-#{$value};  }
+
+  @if $experimental-support-for-microsoft {
+    @if $pie {
+      -pie-background: $value;
+    } @else {
+      // Up to IE9
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$start-color},endColorstr=#{$end-color},GradientType=0);
+
+      // IE10+?
+      background-image: -ms-#{$value};
+    }
+  }
+
+  @if $experimental-support-for-webkit {
+    // Old syntax
+    $opposite-point: bottom;
+    @if $point-or-angle == bottom { $opposite-point: top; }
+
+    background-image: -webkit-gradient(linear, left $point-or-angle, left $opposite-point, color-stop(0, $start-color), color-stop(1, $end-color));
+
+    // New syntax
+    background-image: -webkit-#{$value};
+  }
+
+  // Official property
+  background-image: $value;
+}
