@@ -11,7 +11,7 @@ $use-pie-instead-of-filters: false !default;
   // property to create a gradient with the same start and end color, along
   // with an alpha transparency value.
 
-  @if experimental-support-for-microsoft {
+  @if $experimental-support-for-microsoft {
     @if $pie {
       -pie-background: rgba($a,$g,$b,$a);
     } @else {

@@ -1,13 +1,34 @@
 @import "experimental";
 
+// IE<8 doesn't support any box-sizing property, so we have to
+// retreat to a custom behavior. Set the global to true if you
+// want to use it everywhere or more locally per mixin call.
+//
+// You'll need the .htc from:
+// http://webfx.eae.net/dhtml/boxsizing/boxsizing.html
+
+$use-behavior-for-ie: false !default;
+
 // Change the box model for Mozilla, Webkit, IE8 and the future
 //
 // @param $bs
 // [ content-box | border-box ]
 
-@mixin box-sizing($bs) {
+@mixin box-sizing($bs, $use-behavior: $use-behavior-for-ie) {
   $bs: unquote($bs);
+
+  @if $experimental-support-for-microsoft {
+    @if $use-behavior {
+      behavior: url(boxsizing.htc);
+    }
+  }
+
   @include experimental(box-sizing, $bs,
-    -moz, -webkit, not -o, -ms, not -khtml, official
+    -moz,
+    -webkit,
+    not -o, // Opera supports the official property
+    -ms,
+    not -khtml,
+    official
   );
 }
