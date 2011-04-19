@@ -17,12 +17,6 @@ $use-behavior-for-ie: false !default;
 @mixin box-sizing($bs, $use-behavior: $use-behavior-for-ie) {
   $bs: unquote($bs);
 
-  @if $experimental-support-for-microsoft {
-    @if $use-behavior {
-      behavior: url(boxsizing.htc);
-    }
-  }
-
   @include experimental(box-sizing, $bs,
     -moz,
     -webkit,
@@ -31,4 +25,10 @@ $use-behavior-for-ie: false !default;
     not -khtml,
     official
   );
+
+  @if $experimental-support-for-microsoft {
+    @if $use-behavior {
+      behavior: url(boxsizing.htc);
+    }
+  }
 }
