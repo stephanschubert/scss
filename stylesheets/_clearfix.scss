@@ -1,11 +1,26 @@
 @import "hacks/ie";
 
-// The Modern Approach --
-// Details: http://www.quirksmode.org/css/clearing.html
+// ----------------------------------------------------------------------------
+// Q: Which one should i use?
+// A: Use the default 'clearfix' mixin because it's compact and should have
+//    enough support among modern browsers.
+//
+//    If you encounter an older browser or some weird case, fall back to the
+//    'pie-clearfix' method. It's dark voodoo but never failed me so far.
+//
+//    The other ones are here for the sake of completeness and testing purposes.
+// -----------------------------------------------------------------------------
+
+// The Magnificent Clearfix:
+// Updated to prevent margin-collapsing on child elements in most situations.
+// Details: nicolasgallagher.com/micro-clearfix-hack/
+//
+// Known support: Firefox 3.5+, Safari 4+, Chrome, Opera 9+, IE 6+
 //
 @mixin clearfix {
-  @include has-layout;
-  overflow: hidden;
+  &:before, &:after { content: ""; display: table; }
+  &:after { clear: both; }
+  zoom: 1;
 }
 
 // The Old Voodoo --
@@ -15,6 +30,8 @@
 // positioned elements hanging out of the container.
 //
 // Improved w/ ideas from j.mp/bestclearfix
+//
+// Known support: All browsers
 //
 @mixin pie-clearfix {
   @include has-layout;
@@ -29,6 +46,16 @@
   }
 
   &:after { clear: both; }
+}
+
+// -----------------------------------------------------------------------------
+
+// The Modern Approach --
+// Details: http://www.quirksmode.org/css/clearing.html
+//
+@mixin modern-clearfix {
+  @include has-layout;
+  overflow: hidden;
 }
 
 // Credit: https://github.com/stubbornella/oocss/blob/master/core/media/media.css
