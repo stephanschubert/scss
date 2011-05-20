@@ -13,7 +13,7 @@
   text-shadow: $color $offset-x $offset-y $blur-radius;
 }
 
-@mixin text-emboss($bottom-color = rgba(255,255,255,0.5), $top-color = rgba(0,0,0,0.5)) {
+@mixin text-emboss($bottom-color: rgba(255,255,255,0.5), $top-color: rgba(0,0,0,0.5)) {
   text-shadow: $bottom-color 0 1px 0px, $top-color 0 -1px 0;
 }
 
@@ -53,7 +53,7 @@
   font-style: italic;
 }
 
-@mixin text-caps($letter-spacing = false) {
+@mixin text-caps($letter-spacing: false) {
   font-variant: small-caps;
   @if $letter-spacing { letter-spacing: $letter-spacing; }
 }
