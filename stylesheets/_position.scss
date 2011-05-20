@@ -1,4 +1,4 @@
-@mixin position($mode = 'absolute', $top = false, $right = false, $bottom = false, $left = false) {
+@mixin position($mode: 'absolute', $top: false, $right: false, $bottom: false, $left: false) {
   position: unquote($mode);
   @if $top    { top: $top;       }
   @if $right  { right: $right;   }
@@ -6,64 +6,64 @@
   @if $left   { left: $left;     }
 }
 
-@mixin absolute($top = false, $right = false, $bottom = false, $left = false) {
+@mixin absolute($top: false, $right: false, $bottom: false, $left: false) {
   @include position('absolute', $top, $right, $bottom, $left);
 }
 
-@mixin relative($top = false, $right = false, $bottom = false, $left = false) {
+@mixin relative($top: false, $right: false, $bottom: false, $left: false) {
   @include position('relative', $top, $right, $bottom, $left);
 }
 
 
-@mixin absolute-top-left($top = 0, $left = 0) {
+@mixin absolute-top-left($top: 0, $left: 0) {
   @include absolute($top, false, false, $left);
 }
 
-@mixin absolute-top($top = 0) {
+@mixin absolute-top($top: 0) {
   @include absolute($top, false, false, false);
 }
 
-@mixin absolute-top-right($top = 0, $right = 0) {
+@mixin absolute-top-right($top: 0, $right: 0) {
   @include absolute($top, $right, false, false);
 }
 
-@mixin absolute-right($right = 0) {
+@mixin absolute-right($right: 0) {
   @include absolute(false, $right, false, false);
 }
 
-@mixin absolute-bottom-right($bottom = 0, $right = 0) {
+@mixin absolute-bottom-right($bottom: 0, $right: 0) {
   @include absolute(false, $right, $bottom, false);
 }
 
-@mixin absolute-bottom($bottom = 0) {
+@mixin absolute-bottom($bottom: 0) {
   @include absolute(false, false, $bottom, false);
 }
 
-@mixin absolute-bottom-left($bottom = 0, $left = 0) {
+@mixin absolute-bottom-left($bottom: 0, $left: 0) {
   @include absolute(false, false, $bottom, $left);
 }
 
-@mixin absolute-left($left = 0) {
+@mixin absolute-left($left: 0) {
   @include absolute(false, false, false, $left);
 }
 
 
-@mixin move($top = false, $right = false, $bottom = false, $left = false) {
+@mixin move($top: false, $right: false, $bottom: false, $left: false) {
   @include relative($top, $right, $bottom, $left);
 }
 
-@mixin move-up($up = 0) {
+@mixin move-up($up: 0) {
   @include move(-$up);
 }
 
-@mixin move-right($right = 0) {
+@mixin move-right($right: 0) {
   @include move(false, -$right);
 }
 
-@mixin move-down($down = 0) {
+@mixin move-down($down: 0) {
   @include move(false, false, -$down);
 }
 
-@mixin move-left($left = 0) {
+@mixin move-left($left: 0) {
   @include move(false, false, false, -$left);
 }
