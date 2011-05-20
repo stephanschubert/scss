@@ -1,7 +1,14 @@
-src = Rails.root + "vendor/plugins/scss"
-dst = Rails.root + "public/stylesheets/sass/scss"
+if defined?(Rails)
+  src = Rails.root + "vendor/plugins/scss"
 
-FileUtils.ln_sf src, dst
+  if Rails::VERSION::STRING >= "3.1"
+    dst = Rails.root + "app/assets/stylesheets/scss"
+  else
+    dst = Rails.root + "public/stylesheets/sass/scss"
+  end
+
+  FileUtils.ln_sf src, dst
+end
 
 $:.unshift "#{File.dirname(__FILE__)}/lib"
 
