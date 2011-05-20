@@ -1,19 +1,19 @@
-@mixin border-top($color, $width = 1px, $style = "solid") {
+@mixin border-top($color, $width: 1px, $style: "solid") {
   border-top: $width $style $color;
 }
 
-@mixin border-right($color, $width = 1px, $style = "solid") {
+@mixin border-right($color, $width: 1px, $style: "solid") {
   border-right: $width $style $color;
 }
 
-@mixin border-bottom($color, $width = 1px, $style = "solid") {
+@mixin border-bottom($color, $width: 1px, $style: "solid") {
   border-bottom: $width $style $color;
 }
 
-@mixin border-left($color, $width = 1px, $style = "solid") {
+@mixin border-left($color, $width: 1px, $style: "solid") {
   border-left: $width $style $color;
 }
 
-@mixin border($color, $width = 1px, $style = "solid") {
+@mixin border($color, $width: 1px, $style: "solid") {
   border: $width $style $color;
 }
