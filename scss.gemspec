@@ -4,7 +4,7 @@ require "scss/version"
 
 Gem::Specification.new do |s|
   s.name        = "scss"
-  s.version     = .::VERSION
+  s.version     = Scss::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Stephan Schubert"]
   s.email       = ["stephan@frozencherry.de"]
