@@ -1,18 +1,7 @@
 module Scss
-  # Your code goes here...
 end
 
-if defined?(Rails)
-  src = Rails.root + "vendor/plugins/scss"
-
-  if Rails::VERSION::STRING >= "3.1"
-    dst = Rails.root + "app/assets/stylesheets/scss"
-  else
-    dst = Rails.root + "public/stylesheets/sass/scss"
-  end
-
-  FileUtils.ln_sf src, dst
-end
+require "scss/railtie" if defined?(Rails)
 
 require "sass_extensions/functions/urls"
 require "sass_extensions/functions/color"
