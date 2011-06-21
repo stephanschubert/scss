@@ -1,3 +1,7 @@
+module Scss
+  # Your code goes here...
+end
+
 if defined?(Rails)
   src = Rails.root + "vendor/plugins/scss"
 
@@ -9,8 +13,6 @@ if defined?(Rails)
 
   FileUtils.ln_sf src, dst
 end
-
-$:.unshift "#{File.dirname(__FILE__)}/lib"
 
 require "sass_extensions/functions/urls"
 require "sass_extensions/functions/color"
