@@ -5,7 +5,8 @@ module Scss
       src = File.dirname(__FILE__) + "/../../stylesheets"
       dst = "app/assets/stylesheets/scss"
 
-      FileUtils.ln_sf src, dst
+      FileUtils.rm_f dst
+      FileUtils.ln_s src, dst
     end
 
   end
