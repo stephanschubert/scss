@@ -1,7 +1,7 @@
 module Scss
 end
 
-require "scss/railtie" if defined?(Rails)
+require "scss/engine" if defined?(Rails)
 
 require "sass_extensions/functions/urls"
 require "sass_extensions/functions/color"
