@@ -1,5 +1,3 @@
-@import "experimental";
-
 // IE<8 doesn't support any box-sizing property, so we have to
 // retreat to a custom behavior. Set the global to true if you
 // want to use it everywhere or more locally per mixin call.

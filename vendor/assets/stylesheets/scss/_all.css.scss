@@ -1,23 +1,25 @@
-@import "border";
-@import "center";
-@import "clearfix";
-@import "float";
-@import "grid";
-@import "hacks/ie";
-@import "reset";
-@import "size";
-@import "sprites";
-@import "text";
-@import "lists";
-@import "mobile";
-@import "display";
-@import "position";
+@import "scss/border";
+@import "scss/center";
 
-@import "css3/experimental";
-@import "css3/background-rgba";
-@import "css3/background-clip";
-@import "css3/border-radius";
-@import "css3/box-shadow";
-@import "css3/box-sizing";
-@import "css3/gradient";
-@import "css3/opacity";
+@import "scss/hacks/ie";
+@import "scss/clearfix";
+
+@import "scss/float";
+@import "scss/grid";
+@import "scss/reset";
+@import "scss/size";
+@import "scss/sprites";
+@import "scss/text";
+@import "scss/lists";
+@import "scss/mobile";
+@import "scss/display";
+@import "scss/position";
+
+@import "scss/css3/experimental";
+@import "scss/css3/background-rgba";
+@import "scss/css3/background-clip";
+@import "scss/css3/border-radius";
+@import "scss/css3/box-shadow";
+@import "scss/css3/box-sizing";
+@import "scss/css3/gradient";
+@import "scss/css3/opacity";
